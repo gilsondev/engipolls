@@ -5,7 +5,9 @@ from django.core.urlresolvers import reverse
 
 
 class TalkUrlTest(TestCase):
+    def setUp(self):
+        self.resp = self.client.get(reverse('home'))
+
     def test_get_talk_form(self):
         '''Retorna status 200 da lista de palestras'''
-        response = self.client.get(reverse('home'))
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(self.resp.status_code, 200)
