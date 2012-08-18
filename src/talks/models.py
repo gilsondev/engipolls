@@ -8,3 +8,6 @@ class Talk(models.Model):
     resume = models.TextField()
     at = models.DateTimeField(auto_now_add=True)
     talker = models.CharField(max_length=80)
+
+    def __unicode__(self):
+        return "Palestra: %s" % (self.name,)
