@@ -32,3 +32,7 @@ class TalkModelTest(TestCase):
     def test_create(self):
         """Registra a palestra corretamente"""
         self.assertEquals(self.talk.pk, 1)
+
+    def test_unicode(self):
+        """É usado para retornar a representação do objeto"""
+        self.assertEquals(u'Palestra: O que é Python?', unicode(self.talk))
