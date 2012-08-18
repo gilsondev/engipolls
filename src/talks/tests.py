@@ -26,7 +26,8 @@ class TalkModelTest(TestCase):
             name=u"O que é Python?",
             resume=u"Palestra sobre Python",
             at=datetime.datetime.now(),
-            talker="Guido Van Rossum"
+            talker="Guido Van Rossum",
+            type_talk='P'
         )
 
     def test_create(self):
