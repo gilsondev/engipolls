@@ -1,7 +1,10 @@
 # -*- coding: utf8 -*-
+import datetime
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+
+from .models import Talk
 
 
 class TalkUrlTest(TestCase):
@@ -15,3 +18,17 @@ class TalkUrlTest(TestCase):
     def test_template(self):
         '''Renderiza template para enviar na resposta'''
         self.assertTemplateUsed(self.resp, 'talks/talks_list.html')
+
+
+class TalkModelTest(TestCase):
+    def setUp(self):
+        self.talk = Talk.objects.create(
+            name=u"O que é Python?",
+            resume=u"Palestra sobre Python",
+            at=datetime.datetime.now(),
+            talker="Guido Van Rossum"
+        )
+
+    def test_create(self):
+        """Registra a palestra corretamente"""
+        self.assertEquals(self.talk.pk, 1)
