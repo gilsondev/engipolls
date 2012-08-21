@@ -7,5 +7,6 @@ from .models import Talk
 
 class TalkAdmin(admin.ModelAdmin):
     list_filter = ['at', 'type_talk']
+    search_fields = ('name',)
 
 admin.site.register(Talk, TalkAdmin)
