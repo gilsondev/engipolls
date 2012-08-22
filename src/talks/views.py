@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Talk
 from .forms import PollForm
@@ -15,6 +15,16 @@ def home(request):
 
 
 def poll_form(request, talk_id):
+    talk = get_object_or_404(Talk, pk=talk_id)
+
+    if request.method == 'POST':
+        form = PollForm(request.POST)
+        if form.is_valid():
+            poll = form.save(commit=False)
+            poll.talk = talk
+            poll.save()
+
+            return redirect('/votacoes/sucesso/')
     return render(request, 'talks/polls_form.html', {
         'form': PollForm(),
     })
