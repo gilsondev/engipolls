@@ -7,5 +7,7 @@ urlpatterns = patterns('',
     url(r'^$', 'src.talks.views.home', name='home'),
     url(r'^votacao/(?P<talk_id>[\d]+)/$', 'src.talks.views.poll_form',
         name='poll_form'),
+    url(r'^votacoes/sucesso/$', 'src.talks.views.success',
+        name='success'),
     url(r'^admin/', include(admin.site.urls)),
 )
