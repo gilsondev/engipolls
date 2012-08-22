@@ -30,8 +30,8 @@ class Poll(models.Model):
         (u'R', u'Ruim'),
     )
     talk = models.ForeignKey('Talk')
-    poll = models.CharField(max_length=1, choices=POLL_CHOICES)
-    comments = models.TextField(blank=True)
+    poll = models.CharField(_(u'Votação'), max_length=1, choices=POLL_CHOICES)
+    comments = models.TextField(_(u'Comentários'), blank=True)
 
     class Meta:
         db_table = 'polls'
