@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Engipolls</title>
+</head>
+<body>
+    <h1>Lista de Palestras e Minicursos</h1>
+    {% for talk in talks  %}
+        <h3>{{ talk.name }}</h3>
+        <p>{{ talk.resume }}</p>
+        <p>Horário: {{ talk.at|date:"d/M/Y" }}</p>
+    {% endfor %}
+</body>
+</html>
