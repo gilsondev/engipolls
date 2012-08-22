@@ -14,7 +14,7 @@ def home(request):
     })
 
 
-def poll_form(request):
+def poll_form(request, talk_id):
     return render(request, 'talks/polls_form.html', {
         'form': PollForm(),
     })
