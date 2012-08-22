@@ -28,3 +28,7 @@ def poll_form(request, talk_id):
     return render(request, 'talks/polls_form.html', {
         'form': PollForm(),
     })
+
+
+def success(request):
+    return render(request, 'talks/polls_success.html', {})
