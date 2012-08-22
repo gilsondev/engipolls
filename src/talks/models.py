@@ -21,3 +21,20 @@ class Talk(models.Model):
             return "Palestra: %s" % (self.name,)
         elif self.type_talk == 'M':
             return "Minicurso: %s" % (self.name,)
+
+
+class Poll(models.Model):
+    POLL_CHOICES = (
+        (u'B', u'Muito bom'),
+        (u'L', u'Legal'),
+        (u'R', u'Ruim'),
+    )
+    talk = models.ForeignKey('Talk')
+    poll = models.CharField(max_length=1, choices=POLL_CHOICES)
+    comments = models.TextField(blank=True)
+
+    class Meta:
+        db_table = 'polls'
+
+    def __unicode__(self):
+        return self.get_poll_display()
