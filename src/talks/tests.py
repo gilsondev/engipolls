@@ -11,7 +11,7 @@ class TalkUrlTest(TestCase):
     def setUp(self):
         self.resp = self.client.get(reverse('home'))
 
-    def test_get_talk_form(self):
+    def test_get_talk_list(self):
         '''Retorna status 200 da lista de palestras'''
         self.assertEquals(self.resp.status_code, 200)
 
