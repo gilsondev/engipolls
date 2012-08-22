@@ -4,6 +4,9 @@
     {% for talk in talks  %}
         <h3>{{ talk.name }}</h3>
         <p>{{ talk.resume }}</p>
-        <p>Horário: {{ talk.at|date:"d/M/Y" }}</p>
+        <p>
+            Horário: {{ talk.at|date:"d/M/Y" }}
+            <a href="#">Votar agora</a>
+        </p>
     {% endfor %}
 {% endblock content %}
