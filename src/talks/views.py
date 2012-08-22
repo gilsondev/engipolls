@@ -3,6 +3,7 @@
 from django.shortcuts import render
 
 from .models import Talk
+from .forms import PollForm
 
 
 def home(request):
@@ -10,4 +11,10 @@ def home(request):
 
     return render(request, 'talks/talks_list.html', {
         'talks': talks,
+    })
+
+
+def poll_form(request):
+    return render(request, 'talks/polls_form.html', {
+        'form': PollForm(),
     })
